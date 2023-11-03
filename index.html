@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Maxindo LED</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="maxindo, maxindoled, sewa, led, sewa led, rental, rental led, event, wedding" name="keywords">
+  <meta content="MaxindoLED Rental Sewa LED" name="description">
+  <meta content="MaxindoLED" name="author">
+
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.33.1/sweetalert2.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.33.1/sweetalert2.min.js"></script>
+
+
+  <!-- Favicons -->
+  <link href="img/haha2.png" rel="icon">
+  <link href="img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- <link rel="stylesheet" href="action/plugins/fontawesome-free/css/all.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js" integrity="sha512-uKQ39gEGiyUJl4AI6L+ekBdGKpGw4xJ55+xyJG7YFlJokPNYegn9KwQ3P8A7aFQAUtUsAQHep+d/lrGqrbPIDQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
+ 
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Poppins:300,400,500,700" rel="stylesheet">
+
+  <!-- Bootstrap CSS File -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/ionicons/7.1.2/esm/ionicons.min.js" integrity="sha512-2ySmquu6HK3CAvwLllh0R8K8buFPMZsUwWLZIlB7WW8c8ilUtoNyhsmEsQn2U0IV1USr2Oc/9DJzlr4cxAbuxA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css"> -->
+
+
+  <!-- Libraries CSS Files -->
+  <link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link href="lib/animate/animate.min.css" rel="stylesheet">
+
+  <!-- Main Stylesheet File -->
+  <link href="css/style.css" rel="stylesheet">
+
+  <!-- =======================================================
+    Theme Name: Regna
+    Theme URL: https://bootstrapmade.com/regna-bootstrap-onepage-template/
+    Author: BootstrapMade.com
+    License: https://bootstrapmade.com/license/
+  ======================================================= -->
+</head>
+
+<body>
+
+  <!--==========================
+  Header
+  ============================-->
+  <header id="header">
+    <div class="container">
+
+      <div id="logo" class="pull-left">
+        <a href="#hero"><img src="img/logo1.png" width="120" alt="" title="" /></img></a>
+        <!-- Uncomment below if you prefer to use a text logo -->
+        <!--<h1><a href="#hero">Regna</a></h1>-->
+      </div>
+
+      <nav id="nav-menu-container">
+        <ul class="nav-menu">
+          <li class="menu-active"><a href="#hero">Home</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#services">Type LED</a></li>
+          <li><a href="#call-to-action">Contact Us</a></li>
+          <li><a href="#portfolio">Gallery</a></li>
+          <li><a href="#team">The Events</a></li>
+          <li><a href="#contact">Location & Message</a></li>
+
+          <li class="menu-has-children"><a href="">Action</a>
+            <ul>
+              <li><a href="event.php">The Events</a></li>
+              <li><a href="call.php">Call To Action</a></li>
+            </ul>
+          </li>
+
+          
+          <!-- <li><a href="action/">User</a></li> -->
+        </ul>
+      </nav><!-- #nav-menu-container -->
+    </div>
+  </header><!-- #header -->
+
+  <!--==========================
+    Hero Section
+  ============================-->
+  <section id="hero">
+    <div class="hero-container">
+      <div class="loj">
+        <!-- <img src="img/logo1.png" width="120"> -->
+      </div>
+      
+      <marquee align="right" direction="right" height="300"
+       scrollamount="6" width="100%">
+        <?php 
+          include 'action/koneksi.php';
+          $data = mysqli_query($koneksi,"SELECT * FROM content ORDER BY content_id DESC");
+          $lop = 10001;
+          foreach ($data as $lop){
+            $data = mysqli_query($koneksi,"SELECT * FROM content ORDER BY content_id DESC");
+            while($d = mysqli_fetch_array($data)){
+        ?>
+          <img style="border-radius: 8px; margin-left: 8px;" height="290" width="290" src="action/gambar/<?php echo $d['foto']; ?>" />
+
+        <?php
+        }
+      }
+        ?>
+      </marquee>
+
+      <marquee style="margin-top: 10px;" align="left" direction="left" height="240"
+       scrollamount="5" width="100%">
+        <?php 
+          include 'action/koneksi.php';
+          $data = mysqli_query($koneksi,"SELECT * FROM konten ORDER BY konten_id DESC");
+          $lop = 10001;
+          foreach ($data as $lop){
+            $data = mysqli_query($koneksi,"SELECT * FROM konten ORDER BY konten_id DESC");
+            while($d = mysqli_fetch_array($data)){
+        ?>
+          <img style="border-radius: 8px; margin-left: 8px;" height="230" width="230" src="action/gambar/<?php echo $d['foto']; ?>" />
+
+        <?php
+          }
+        }
+        ?>
+      </marquee>
+      
+      <a href="#about" class="btn-get-started">Get Started</a>
+      
+      <h1>Welcome to MaxindoLED</h1>
+      <h2>Visual Expertise We are max</h2>
+    </div>
+  </section><!-- #hero -->
+
+  <main id="main">
+
+    <!--==========================
+      About Us Section
+    ============================-->
+    <section style="background-color: #FFFFFF;" id="about">
+      <div class="container">
+        <div class="row about-container">
+        
+          <div class="col-lg-6 content order-lg-1 order-2">
+            <!-- <h2 class="title">About Us</h2>
+            <p>
+              Maxindoled is the multimedia rental solution for all events, We support all you need and also we can advise for your events, start from Ideas, concept, design, and execute. Maxindoled is giving maximum support to bring the value of customs. Maxindoled has a great team, and we work smart and maximum.
+            </p> -->
+            <?php 
+              include 'action/koneksi.php';
+              $data = mysqli_query($koneksi,"SELECT * FROM about");
+              while($d = mysqli_fetch_array($data)){
+            ?>
+
+            
+              <div class="icon-box wow fadeInUp" data-wow-delay="0.2s">
+                <a style="font-size: 8px;" type="button" data-toggle="modal" data-target="#exampleModal<?php echo $d['about_id']; ?>" title="Detail">                
+                  <div class="icon"><?php echo $d['penulis'];?></div>
+                  <h4 class="title"><?php echo $d['subjek'];?></h4>
+                  <p class="description"><?php echo $d['isi'];?></p>
+                </a>
+              </div>
+  
+              <!-- Modal Detail Start-->
+              <div class="modal fade" id="exampleModal<?php echo $d['about_id']; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <!-- <div class="modal-content" style="background-image: linear-gradient(135deg, #FAB2FF 10%, #1904E5 100%);"> -->
+                  <div style="background-color: #2E4374;" class="modal-content">
+                    <div class="container mt-1">
+                      <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <h1 style="font-weight: bold; color: #FFFFFF;"><?php echo $d['subjek']; ?></h1>
+                      <hr style="background-color: #FFFFFF;">
+                      <p style="font-size: small;" class="text-white mb-4"><?php echo $d['isi']; ?></p>
+                          
+                    </div>
+                    <button type="button" class="btn bg-white text-dark btn-sm" data-dismiss="modal"><i class="fas fa-times"></i> Close</button>                                          
+                    
+                  </div>
+                </div>
+              </div>
+            <!-- Modal Detail end -->
+            <?php }?>
+
+            <!-- <div class="icon-box wow fadeInUp" data-wow-delay="0.2s">
+              <div class="icon"><i class="fa fa-photo"></i></div>
+              <h4 class="title"><a href="">Magni Dolores</a></h4>
+              <p class="description">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+            </div>
+
+            <div class="icon-box wow fadeInUp" data-wow-delay="0.4s">
+              <div class="icon"><i class="fa fa-bar-chart"></i></div>
+              <h4 class="title"><a href="">Dolor Sitema</a></h4>
+              <p class="description">Minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat tarad limino ata</p>
+            </div> -->
+
+          </div>
+
+          <div class="col-lg-6 background order-lg-2 order-1 wow fadeInRight">
+            <h2 class="title">About Us</h2>
+            <p>
+              Maxindoled adalah solusi penyewaan multimedia untuk semua acara, Kami mendukung semua kebutuhan Anda dan juga kami dapat memberikan saran untuk acara Anda, mulai dari Ide, konsep, desain, dan pelaksanaan. Maxindoled memberikan dukungan maksimal untuk menghadirkan nilai adat istiadat. Maxindoled memiliki tim yang hebat, dan kami bekerja dengan cerdas dan maksimal.
+            </p>
+
+            <img src="img/ert.jpg" class="img-fluid rounded" alt="" srcset="">
+          </div>
+        </div>
+
+      </div>
+    </section>
+    <!-- #about -->
+
+    <!--==========================
+      Facts Section
+    ============================-->
+    <section id="facts">
+      <div class="container wow fadeIn">
+        <div class="section-header">
+          <h3 class="section-title">Facts</h3>
+          <p class="section-description">Facts about us that we have created</p>
+        </div>
+        <div class="row counters">
+
+          <?php 
+            include 'action/koneksi.php';
+            $data = mysqli_query($koneksi,"SELECT * FROM facts ORDER BY fact_id DESC");
+            while($d = mysqli_fetch_array($data)){
+          ?>
+            <div class="col-lg-3 col-6 text-center">
+              <span data-toggle="counter-up"><?php echo $d['nomor'];?></span>
+              <p><?php echo $d['ket'];?></p>
+            </div>
+
+          <?php
+            }
+          ?>
+          <!-- <div class="col-lg-3 col-6 text-center">
+            <span data-toggle="counter-up">521</span>
+            <p>Projects</p>
+  				</div>
+
+          <div class="col-lg-3 col-6 text-center">
+            <span data-toggle="counter-up">1,463</span>
+            <p>Hours Of Support</p>
+  				</div>
+
+          <div class="col-lg-3 col-6 text-center">
+            <span data-toggle="counter-up">15</span>
+            <p>Hard Workers</p>
+  				</div> -->
+
+  			</div>
+
+      </div>
+    </section><!-- #facts -->
+
+    <!--==========================
+      Services Section
+    ============================-->
+    <section id="services">
+      <div class="container wow fadeIn">
+        <div class="section-header">
+          <h3 class="section-title">TYPE LED</h3>
+          <p class="section-description">Various types of LED and their functions</p>
+        </div>
+        <div class="row">
+          <?php
+            include 'action/koneksi.php';
+            $data = mysqli_query($koneksi,"SELECT * FROM perkataan ORDER BY kata_id DESC");
+            
+            while($d = mysqli_fetch_array($data)){
+          ?>
+          
+          <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
+            <div class="box">
+            <div class="icon"><a type="button" class="btn btn-transparent" data-toggle="modal" data-target="#example2Modal<?php echo $d['kata_id']; ?>" title="Detail"><i class="fa fa-bar-chart"></i></a></div>
+
+              <h4 class="title"> <?php echo $d['subjek']; ?></h4>
+              
+              <!-- <div class="icon"><img src="action/perkataan/<?php echo $d['foto'] ?>" width="20" height="20"></div> -->
+              
+              <p style="font-size: small;" class="description"><?php echo $d['isi']; ?></p>
+            </div>
+          </div>
+
+          <!-- Modal Detail Start-->
+          <div class="modal fade" id="example2Modal<?php echo $d['kata_id']; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div style="background-color: #EF9A9A;" class="modal-content">
+                <div class="container mt-1">
+                  <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                
+                <div class="modal-body text-center">
+                  <img class="img-fluid rounded" src="action/perkataan/<?php echo $d['foto'] ?>" width="200" height="200">
+                  <h5 style="font-weight: bold;" class="text-white"><?php echo $d['subjek']; ?></h5>
+                  <p style="font-size: small;" class="text-white"><?php echo $d['isi']; ?></p>
+                </div>
+                <button type="button" class="btn bg-white text-dark btn-sm" data-dismiss="modal"><i class="fas fa-times"></i> Close</button>
+
+                                                        
+            </div>
+          </div>
+        </div>
+        <!-- Modal Detail end -->
+
+        <?php } ?>
+        </div>
+
+      </div>
+    </section><!-- #services -->
+
+    <!--==========================
+    Call To Action Section
+    ============================-->
+    <section id="call-to-action">
+      <div class="section-header">
+        <h1 class="section-title text-white">Click To Action</h1>
+        <p class="section-description">Click Icon If Your Want To Action In Maxindoled</p>
+      </div>
+      <div class="container wow fadeIn">
+        <div class="row text">
+          <div class="col-lg-4 text-center text-center">
+            <h3 class="cta-title">Marketing Number</h3>
+            <div class="row">
+              
+              <?php 
+                include 'action/koneksi.php';
+                $data = mysqli_query($koneksi,"SELECT * FROM nowa ORDER BY nowa_id DESC");
+                while($d = mysqli_fetch_array($data)){
+              ?>
+              <div class="col-lg text-center">
+                <div class="social-links">
+                  <a href="https://wa.me/<?php echo $d['linkwa'];?>" class="btn btn-success text-center" style="border-radius: 50%;">
+                    <i class="fa-brands fa-whatsapp text-center"></i>
+                  </a>
+                </div>
+                <small style="font-size: x-small;" class="text-white"><?php echo $d['ket'];?></small>
+              </div>
+
+              <?php
+              }
+              ?>
+              <!-- <div class="col">
+                <div class="social-links">
+                  <a href="https://wa.me/+628970062787" class="btn btn-success text-center" style="border-radius: 50%;">
+                    <i class="fa-brands fa-whatsapp text-center"></i>
+                  </a>
+                </div>
+              </div> -->
+
+            </div>
+          </div>
+
+
+          <div class="col-lg-2 text-center">
+            <span></span>
+            <br>
+          </div>
+          <div class="col-lg-3 text-center">
+            <span></span>
+            <br>
+          </div>
+
+          <div class="col-lg-3 text-center">
+            <h3 class="cta-title">Social Media</h3>
+            <div class="social-links">
+              <div class="row text-center">
+
+                <div class="col">
+                  <a href="https://www.facebook.com/Maxindoled.official/" class="btn text-white" style="border-radius: 50%; background-color: #1976D2;">
+                    <i class="fa fa-facebook"></i>
+                  </a>
+                </div>
+
+                <div class="col">
+                  <a href="https://www.instagram.com/maxindoled/?hl=id" class="btn text-white" style="border-radius: 50%; background-image: linear-gradient(135deg, #FFC107 10% ,#D32F2F 50%, #283593 100%);">
+                    <i class="fa fa-instagram"></i>
+                  </a>
+                </div>
+
+                <div class="col">
+                  <a href="https://www.tiktok.com/@maxindoled" class="btn text-white" style="border-radius: 50%; background-color: #212121;">
+                    <i class="fa-brands fa-tiktok"></i>
+                  </a>
+                </div>
+
+                <div class="col">
+                  <a href="https://www.youtube.com/@maxindoled" class="btn text-white" style="border-radius: 50%; background-color: #C62828;">
+                    <i class="fa-brands fa-youtube"></i>
+                  </a>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="container text-center">
+        <p style="font-size: small;" class="text-white"><i class="fa-solid fa-envelope text-warning"></i> Send Mail : maxindoled@gmail.com</p>
+        </div>
+
+      </div>
+      <!-- <div class="container text-center text-white mt-2">
+        <span style="font-weight: bold; font-family: 'Poppins', sans-serif;">Klik Icon To Action</span>
+      </div> -->
+    </section><!-- #call-to-action -->
+
+    <section id="youtube" class="bg-white p-5">
+        <div class="section-header">
+          <h3 class="section-title">Youtube</h3>
+          <p class="section-description">Subscribe Youtube Channel <a href="https://www.youtube.com/@maxindoled">Maxindo LED</a></p>
+        </div>
+
+      <div class="poiu pl-3 pr-3">
+        <div class="row">
+          <?php 
+            include 'action/koneksi.php';
+            $data = mysqli_query($koneksi,"SELECT * FROM yutub ORDER BY yutub_id DESC");
+                
+            while($d = mysqli_fetch_array($data)){
+          ?>
+
+          <div class="col-lg-6">
+            <div class="embed-responsive embed-responsive-16by9">
+              <?php echo $d['linkyt'];?>
+            </div>
+            <h5 style="margin-bottom: 10px; font-family: 'Poppins', sans-serif; color: #121212;"><?php echo $d['ket'];?></h5>
+          </div>
+        
+          <?php
+            }
+          ?>
+        </div>
+      </div>
+
+    </section>
+
+    <!--==========================
+      Portfolio Section
+    ============================-->
+    <section id="portfolio">
+      <div class="container wow fadeInUp">
+        <div class="section-header">
+          <h3 class="section-title">Gallery</h3>
+          <p class="section-description">See our gallery to see the events we have completed</p>
+        </div>
+        <div class="row">
+
+          <div class="col-lg-12">
+            <ul id="portfolio-flters">
+              <li data-filter=".filter-team, .filter-led, .filter-marketing" class="filter-active">All</li>
+              <li data-filter=".filter-team">Team</li>
+              <li data-filter=".filter-led">LED</li>
+              <li data-filter=".filter-marketing">Marketing</li>
+              <!-- <li data-filter=".filter-web">Kantor</li> -->
+            </ul>
+          </div>
+        </div>
+        
+        <div class="row" id="portfolio-wrapper">
+          <!-- team section start -->
+          <?php 
+            include 'action/koneksi.php';
+            $data = mysqli_query($koneksi,"SELECT * FROM team ORDER BY team_id DESC");
+            
+            while($d = mysqli_fetch_array($data)){
+          ?>
+          <div class="col-lg-3 col-md-6 portfolio-item filter-team">
+            <a href="">
+              <img src="action/gambar/<?php echo $d['foto']; ?>" alt="">
+              
+              <div class="details">
+                <span><?php echo $d['waktu'];?></span>
+                <h4><?php echo $d['ket'];?></h4>
+              </div>
+            </a>
+            
+          </div>
+          <?php }?>
+          <!-- team section end -->
+
+          <!-- LED section start -->
+          <?php 
+            include 'action/koneksi.php';
+            $data = mysqli_query($koneksi,"SELECT * FROM led ORDER BY led_id DESC");
+            
+            while($d = mysqli_fetch_array($data)){
+          ?>
+          <div class="col-lg-3 col-md-6 portfolio-item filter-led">
+            <a href="">
+              <img src="action/gambar/<?php echo $d['foto']; ?>" alt="">
+              <div class="details">
+                <span><?php echo $d['waktu'];?></span>
+                <h4><?php echo $d['ket'];?></h4>
+              </div>
+            </a>
+          </div>
+          <?php
+            }
+          ?>
+          <!-- LED section start -->
+
+          <!-- Marketing section Start -->
+          <?php 
+            include 'action/koneksi.php';
+            $data = mysqli_query($koneksi,"SELECT * FROM marketing ORDER BY marketing_id DESC");
+            
+            while($d = mysqli_fetch_array($data)){
+          ?>
+          <div class="col-lg-3 col-md-6 portfolio-item filter-marketing">
+            <a href="">
+              <img src="action/gambar/<?php echo $d['foto']; ?>" alt="">
+              <div class="details">
+                <span><?php echo $d['waktu'];?></span>
+                <h4><?php echo $d['ket'];?></h4>
+              </div>
+            </a>
+          </div>
+          <?php
+            }
+          ?>
+          <!-- Marketing section Start -->
+
+        </div>
+      </div>
+    </section>
+    <!-- #portfolio -->
+
+    <!--==========================
+      Team Section
+    ============================-->
+    <section id="team">
+      <div class="container wow fadeInUp">
+        <div class="section-header">
+          <h3 class="section-title">one of the Events</h3>
+          <p class="section-description">Ready to enliven your event with an unforgettable experience!</p>
+        </div>
+        <div class="row">
+          
+          <!-- Acara Start -->
+          <?php 
+            include 'action/koneksi.php';
+            $data = mysqli_query($koneksi,"SELECT * FROM acara ORDER BY acara_id DESC");
+            $no = 1;
+            while($d = mysqli_fetch_array($data)){
+          ?>
+          <div class="col-lg-3 col-md-6">
+            <div class="member">
+              <div class="pic"><img class="rounded" src="action/gambar/<?php echo $d['foto']; ?>" alt=""></div>
+              <h4><?php echo $d['ket'];?></h4>
+              <span><?php echo $d['waktu'];?></span>
+              <div class="social">
+                <!-- <a href=""><i class="fa fa-twitter"></i></a>
+                <a href=""><i class="fa fa-facebook"></i></a>
+                <a href=""><i class="fa fa-google-plus"></i></a>
+                <a href=""><i class="fa fa-linkedin"></i></a> -->
+                <br>
+              </div>
+            </div>
+          </div>
+
+          <?php
+            }
+          ?>
+          <!-- Acara End -->
+
+        </div>
+
+      </div>
+    </section><!-- #team -->
+
+    <!--==========================
+      Contact Section
+    ============================-->
+    <section id="contact">
+      <div class="container wow fadeInUp">
+        <div class="section-header">
+          <h3 class="section-title">Location and Message</h3>
+          <p class="section-description">We Are Here</p>
+        </div>
+      </div>
+
+      <!-- Uncomment below if you wan to use dynamic maps -->
+      <div class="mapouter">
+        <div class="gmap_canvas">
+          <iframe class="gmap_iframe" width="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=600&amp;height=400&amp;hl=en&amp;q=maxindo led&amp;t=&amp;z=18&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe>
+          <a href="https://embed-googlemap.com">embed-googlemap.com</a>
+        </div>
+        <style>
+          .mapouter{
+              position:relative;
+              text-align:right;
+              width:100%;
+              height:400px;
+            }
+            
+            .gmap_canvas 
+            {
+              overflow:hidden;
+              background:none!important;
+              width:100%;
+              height:400px;
+            }
+            .gmap_iframe {
+              height:400px!important;
+            }
+          </style>
+      </div>
+      <!-- <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d22864.11283411948!2d-73.96468908098944!3d40.630720240038435!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew+York%2C+NY%2C+USA!5e0!3m2!1sen!2sbg!4v1540447494452" width="100%" height="380" frameborder="0" style="border:0" allowfullscreen></iframe> -->
+
+      <div class="container wow fadeInUp mt-5">
+        <div class="row justify-content-center">
+
+          <div class="col-lg-3 col-md-4">
+
+            <div class="info">
+              <div>
+                <i class="fa fa-map-marker"></i>
+                <p>Maxindo LED<br>Jl. Gempol Raya No.3A, RT.005/RW.009, Kunciran Indah, Kec. Pinang, Kota Tangerang, Banten 15144</p>
+              </div>
+
+              <div>
+                <i class="fa fa-envelope"></i>
+                <p>maxindoled@gmail.com</p>
+              </div>
+
+              <!-- <div>
+                <i class="fa fa-phone"></i>
+                <p>+62 897 0062 786</p>F
+              </div> -->
+            </div>
+
+          </div>
+
+          <div class="col-lg-5 col-md-8">
+            <div class="form">
+              <div id="sendmessage">Your message has been sent. Thank you!</div>
+              <div id="errormessage"></div>
+              <form action="komen.php" method="post" role="form" class="contactForm">
+                
+                <div class="form-group">
+                  <input type="text" name="nama" class="form-control rounded" id="nama" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                  <div class="validation"></div>
+                </div>
+                <div class="form-group">
+                  <input type="email" class="form-control rounded" name="mail" id="mail" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />
+                  <div class="validation"></div>
+                </div>
+                <div class="form-group">
+                  <input type="text" class="form-control rounded" name="subjek" id="subjek" placeholder="Subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
+                  <div class="validation"></div>
+                </div>
+                <div class="form-group">
+                  <textarea class="form-control rounded" name="pesan" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
+                  <div class="validation"></div>
+                </div>
+                <div class="text-center"><button style="border-radius: 5px;" type="submit">Send Message</button></div>
+              </form>
+            </div>
+          </div>
+
+          <!-- <script>
+            Swal.fire('Ini adalah sweetalert Basic');
+          </script> -->
+
+        </div>
+
+      </div>
+    </section><!-- #contact -->
+
+  </main>
+
+  <!--==========================
+    Footer
+  ============================-->
+  <footer id="footer">
+    <div class="footer-top">
+      <div class="container">
+
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="copyright">
+        <strong>2023 MaxindoLED&trade;</strong>. All Rights Reserved
+      </div>
+      <div class="credits">
+        <!--
+          All the links in the footer should remain intact.
+          You can delete the links only if you purchased the pro version.
+          Licensing information: https://bootstrapmade.com/license/
+          Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=Regna
+        -->
+        Designed by <a href="https://www.instagram.com/hafidzal_/">Hafidzal Maulana</a>
+      </div>
+    </div>
+  </footer><!-- #footer -->
+
+  <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+
+  <!-- JavaScript Libraries -->
+  <script src="lib/jquery/jquery.min.js"></script>
+  <script src="lib/jquery/jquery-migrate.min.js"></script>
+  <script src="lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="lib/easing/easing.min.js"></script>
+  <script src="lib/wow/wow.min.js"></script>
+  <script src="lib/waypoints/waypoints.min.js"></script>
+  <script src="lib/counterup/counterup.min.js"></script>
+  <script src="lib/superfish/hoverIntent.js"></script>
+  <script src="lib/superfish/superfish.min.js"></script>
+
+  <!-- Contact Form JavaScript File -->
+  <script src="contactform/contactform.js"></script>
+
+  <!-- Template Main Javascript File -->
+  <script src="js/main.js"></script>
+
+</body>
+</html>
